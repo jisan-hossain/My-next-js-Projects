@@ -1,12 +1,27 @@
-
+"use client"
 import Image from 'next/image';
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from "@/assets/logo.png"
 import Link from 'next/link';
+import { FitContext } from './context/FitlogContex';
 const Navber = () => {
+  const {todaysPlan , saveForLater} = useContext(FitContext)|| {
+    todaysPlan : [],
+    saveForLater : [],
+  }
+const planCount = todaysPlan ? todaysPlan.length: 0;
+const saveCount = saveForLater ? saveForLater.length : 0 ;
     const links = <>
-         <li><Link href={"/workOutPage"}>Workouts</Link></li>
-        <li><Link href={"/myPlan"}> My plan</Link></li>
+   <li>
+  <Link href="/workOutPage" className="hover:text-[#C2F800] transition">
+    Workouts
+  </Link>
+</li>
+<li>
+  <Link href="/myPlan" className="hover:text-[#C2F800] transition">
+    My plan
+  </Link>
+</li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -32,9 +47,13 @@ const Navber = () => {
       {links}
     </ul>
   </div>
-  <div className="navbar-end flex  items-center font-bold gap-3.5">
-   <p>Plan 0</p>
-   <p>saved 0</p>
+  <div className="navbar-end flex items-center font-bold gap-3.5">
+    <Link href="/myPlan" className="hover:text-[#C2F800] transition flex items-center gap-1 cursor-pointer">
+      Plan <span className="text-[#C2F800]">{planCount}</span>
+    </Link>
+    <Link href="/myPlan" className="hover:text-[#C2F800] transition flex items-center gap-1 cursor-pointer">
+      saved <span className="text-gray-300">{saveCount}</span>
+    </Link>
   </div>
 </div>
     );
