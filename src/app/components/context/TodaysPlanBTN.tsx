@@ -1,23 +1,22 @@
-"use client"
-import React, { useContext } from 'react';
-import { FitContext } from './FitlogContex';
-import { iWorkout } from '@/type/type';
-import { toast } from 'react-toastify';
+"use client";
 
-const TodaysPlanBTN = ({singleCard}:{singleCard : iWorkout}) => {
+import React, { useContext } from "react";
+import { FitContext } from "./FitlogContex";
+import { iWorkout } from "@/type/type";
 
-    const {todaysPlan, setTodaysPlan} = useContext(FitContext)
+interface Props {
+  singleCard: iWorkout;
+}
 
-    const planHandallClick = () => {
-    setTodaysPlan([...todaysPlan , singleCard])
-toast.success(`You have read "${singleCard.name}"`)
-    }
-    return (
-        <div>
-               <button className="rounded-lg bg-lime-400 px-4 py-3 font-bold text-black"
-               onClick={()=> planHandallClick()}>Add to today's plan  </button>
-        </div>
-    );
-};
+export default function TodaysPlanBTN({ singleCard }: Props) {
+  const { addToToday } = useContext(FitContext);
 
-export default TodaysPlanBTN;
+  return (
+    <button
+      onClick={() => addToToday(singleCard)}
+      className="bg-[#C2F800] text-black font-bold px-6 py-3 rounded-xl hover:opacity-90 transition text-sm cursor-pointer"
+    >
+      Add to today's plan
+    </button>
+  );
+}

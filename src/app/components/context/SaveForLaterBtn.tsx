@@ -1,27 +1,22 @@
-"use client"
-import React, { useContext } from 'react';
-import { CiBookmark } from 'react-icons/ci';
-import { FitContext } from './FitlogContex';
-import { iWorkout } from '@/type/type';
-import { toast } from 'react-toastify';
+"use client";
 
-const SaveForLaterBtn = ({singleCard}: {singleCard : iWorkout}) => {
-        const {saveForLater, setSaveForLater} = useContext(FitContext) 
-const saveLaterClick = () => {
-setSaveForLater([...saveForLater , singleCard])
-toast.success(`You have read "${singleCard.name}"`)
+import React, { useContext } from "react";
+import { FitContext } from "./FitlogContex";
+import { iWorkout } from "@/type/type";
+
+interface Props {
+  singleCard: iWorkout;
 }
 
+export default function SaveForLaterBtn({ singleCard }: Props) {
+  const { addToSaved } = useContext(FitContext);
 
-    
-    return (
-       
-<button className="flex items-center gap-2 rounded-lg px-4 py-3 font-bold text-black border border-amber-50 bg-white"
-onClick={()=> saveLaterClick()}>
-  <CiBookmark className="w-5 h-5" /> 
-  Save for later
-</button>
-    );
-};
-
-export default SaveForLaterBtn;
+  return (
+    <button
+      onClick={() => addToSaved(singleCard)}
+      className="border border-gray-700 hover:bg-gray-800 text-white font-semibold px-6 py-3 rounded-xl transition text-sm cursor-pointer"
+    >
+      Save for later
+    </button>
+  );
+}
