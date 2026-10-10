@@ -1,37 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FitLog — Workout Library & Fitness Companion
 
-## Getting Started
+FitLog is a sleek, dark-themed gym companion web application built for fitness enthusiasts to pick lifts, lock workouts into today's plan, track progress, and manage saved routines seamlessly.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Technologies Used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* **Next.js (App Router):** For server-side rendering, routing, and optimal performance.
+* **Tailwind CSS & DaisyUI:** For modern, responsive styling and UI components.
+* **React Context API:** For robust global state management (Today's Plan & Saved Lifts).
+* **TypeScript:** For static typing and better code reliability.
+* **React Toastify:** For interactive user feedback notifications.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Key Features (Minimum 5 Features)
 
-## Learn More
+1. **Interactive Workout Library:** 
+   Browse a comprehensive library of lifts covering major muscle groups, complete with high-resolution imagery, category tags, equipment lists, and stat rows (duration, calories, ratings).
+2. **Dynamic Today's Plan & Saved Lists:** 
+   Easily add workouts to "Today's Plan" or save them for later with instant counter badges updating dynamically in the navigation bar.
+3. **Live Metrics & Progress Tracking:** 
+   Real-time summary metrics tracking total exercises, minutes, and calories, alongside a "Mark as Done" feature to complete daily routines.
+4. **Fully Responsive Dark Theme Design:** 
+   A mobile-first, dark-themed UI optimized across all screen sizes (mobile, tablet, and desktop) with smooth anchor navigation and custom styling.
+5. **Robust Error & Loading States:** 
+   Enhanced user experience featuring animated loading states during data fetching and a custom 404 Not Found page for invalid routes.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Getting Started Locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# My-next-js-Projects
+1. Clone the repository:
+   ```bash
+   git clone <your-repository-url>
