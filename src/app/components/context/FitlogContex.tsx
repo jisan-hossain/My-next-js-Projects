@@ -32,32 +32,50 @@ const FitLogProvider = ({children}:{children : ReactNode}) => {
 
     const removeFromToday = (id: any) => {
       setTodaysPlan((prev) => prev.filter((item) => item.id !== id));
-      toast.info("Removed from Today's Plan!");
+      toast.info("Removed from Today's Plan!", {
+        autoClose: 2000,
+        hideProgressBar: false,
+      });
     };
 
     const removeFromSaved = (id: any) => {
       setSaveForLater((prev) => prev.filter((item) => item.id !== id));
-      toast.info("Removed from Saved!");
+      toast.info("Removed from Saved!", {
+        autoClose: 2000,
+        hideProgressBar: false,
+      });
     };
 
     const addToToday = (item: iWorkout) => {
       const isExist = todaysPlan.some((workout) => workout.id === item.id);
       if (isExist) {
-        toast.warning("Already added to Today's Plan!");
+        toast.warning("Already added to Today's Plan!", {
+          autoClose: 2000,
+          hideProgressBar: false,
+        });
         return;
       }
       setTodaysPlan((prev) => [...prev, item]);
-      toast.success("Added to Today's Plan!");
+      toast.success("Added to Today's Plan!", {
+        autoClose: 2000,
+        hideProgressBar: false,
+      });
     };
 
     const addToSaved = (item: iWorkout) => {
       const isExist = saveForLater.some((workout) => workout.id === item.id);
       if (isExist) {
-        toast.warning("Already saved for later!");
+        toast.warning("Already saved for later!", {
+          autoClose: 2000,
+          hideProgressBar: false,
+        });
         return;
       }
       setSaveForLater((prev) => [...prev, item]);
-      toast.success("Saved for later!");
+      toast.success("Saved for later!", {
+        autoClose: 2000,
+        hideProgressBar: false,
+      });
     };
 
     const shered = {
@@ -73,7 +91,14 @@ const FitLogProvider = ({children}:{children : ReactNode}) => {
 
     return (
        <FitContext.Provider value={shered}>
-         <ToastContainer position="top-center" autoClose={2000} theme="dark" />
+         <ToastContainer 
+           position="top-right" 
+           autoClose={2000} 
+           theme="dark" 
+           limit={1} 
+           hideProgressBar={false}
+           newestOnTop={true} 
+         />
          {children}
        </FitContext.Provider>
     );

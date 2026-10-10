@@ -11,3 +11,14 @@ body {
   background: var(--background);
   font-family: system-ui, -apple-system, sans-serif;
 }
+
+/* React Toastify Ghost Layer Fix */
+.Toastify__toast-container {
+  z-index: 9999;
+}
+.Toastify__toast {
+  background: #181a1f !important;
+  color: #fff !important;
+  border: 1px solid #374151 !important;
+  border-radius: 12px !important;
+}

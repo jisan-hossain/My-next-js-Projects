@@ -35,7 +35,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
          {children}
      </div>
 <Footer></Footer>
- <ToastContainer />
+
+ 
 </FitLogProvider>
       </body>
     </html>
