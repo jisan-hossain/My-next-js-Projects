@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import TodaysPlanBTN from '../components/context/TodaysPlanBTN';
 import SaveForLaterBtn from '../components/context/SaveForLaterBtn';
-export const instant = false;
+
 
 const ShowDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
@@ -11,7 +11,7 @@ const ShowDetailsPage = async ({ params }: { params: Promise<{ id: string }> }) 
 
   try {
     const res = await fetch("https://api.abcz.workers.dev/api/fitlog", {
-      cache: "no-store" // ensure API response is fresh
+      cache: "no-store"
     });
 
     // Check header content-type or if response is ok
