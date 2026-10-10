@@ -26,13 +26,14 @@ export const FitContext = createContext<FitContextValue>({
   addToSaved: () => {},
 });
 
-const FitLogProvider = ({children}:{children : ReactNode}) => {
+const FitLogProvider = ({ children }: { children: ReactNode }) => {
     const [todaysPlan, setTodaysPlan] = useState<iWorkout[]>([]);
     const [saveForLater, setSaveForLater] = useState<iWorkout[]>([]);
 
     const removeFromToday = (id: any) => {
       setTodaysPlan((prev) => prev.filter((item) => item.id !== id));
       toast.info("Removed from Today's Plan!", {
+        toastId: `remove-today-${id}`,
         autoClose: 2000,
         hideProgressBar: false,
       });
@@ -41,15 +42,19 @@ const FitLogProvider = ({children}:{children : ReactNode}) => {
     const removeFromSaved = (id: any) => {
       setSaveForLater((prev) => prev.filter((item) => item.id !== id));
       toast.info("Removed from Saved!", {
+        toastId: `remove-saved-${id}`,
         autoClose: 2000,
         hideProgressBar: false,
       });
     };
 
     const addToToday = (item: iWorkout) => {
+      if (!item || !item.id) return;
+
       const isExist = todaysPlan.some((workout) => workout.id === item.id);
       if (isExist) {
         toast.warning("Already added to Today's Plan!", {
+          toastId: `today-warning-${item.id}`,
           autoClose: 2000,
           hideProgressBar: false,
         });
@@ -57,15 +62,19 @@ const FitLogProvider = ({children}:{children : ReactNode}) => {
       }
       setTodaysPlan((prev) => [...prev, item]);
       toast.success("Added to Today's Plan!", {
+        toastId: `today-success-${item.id}`,
         autoClose: 2000,
         hideProgressBar: false,
       });
     };
 
     const addToSaved = (item: iWorkout) => {
+      if (!item || !item.id) return;
+
       const isExist = saveForLater.some((workout) => workout.id === item.id);
       if (isExist) {
         toast.warning("Already saved for later!", {
+          toastId: `saved-warning-${item.id}`,
           autoClose: 2000,
           hideProgressBar: false,
         });
@@ -73,6 +82,7 @@ const FitLogProvider = ({children}:{children : ReactNode}) => {
       }
       setSaveForLater((prev) => [...prev, item]);
       toast.success("Saved for later!", {
+        toastId: `saved-success-${item.id}`,
         autoClose: 2000,
         hideProgressBar: false,
       });
@@ -96,6 +106,7 @@ const FitLogProvider = ({children}:{children : ReactNode}) => {
            autoClose={2000} 
            theme="dark" 
            limit={1} 
+           preventDuplicates={true}
            hideProgressBar={false}
            newestOnTop={true} 
          />
