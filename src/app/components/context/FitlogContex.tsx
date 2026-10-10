@@ -101,15 +101,14 @@ const FitLogProvider = ({ children }: { children: ReactNode }) => {
 
     return (
        <FitContext.Provider value={shered}>
-         <ToastContainer 
-           position="top-right" 
-           autoClose={2000} 
-           theme="dark" 
-           limit={1} 
-           preventDuplicates={true}
-           hideProgressBar={false}
-           newestOnTop={true} 
-         />
+     <ToastContainer 
+  position="top-right" 
+  autoClose={2000} 
+  theme="dark" 
+  limit={1} 
+  hideProgressBar={false}
+  newestOnTop={true} 
+/>
          {children}
        </FitContext.Provider>
     );
